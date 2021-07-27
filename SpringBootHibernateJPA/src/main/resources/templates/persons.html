@@ -21,10 +21,10 @@
                 <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/patients">Patients <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/persons">Persons <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">Add Patient</a>
+                <a class="nav-link" href="/register">Add Person</a>
             </li>
 
         </ul>
@@ -33,28 +33,28 @@
 
 <table>
     <tr>
+        <th>first name</th>
+        <th>last name</th>
+        <th>rental amount</th>
+        <th>car model</th>
         <th></th>
-        <th>Patient name</th>
-<!--        <th>Patient surname</th>-->
-<!--        <th>Patient age</th>-->
-<!--        <th>Patient covid info</th>-->
         <th></th>
     </tr>
-    <tr th:each="patient : ${patients}">
-        <td th:text="${patient.name}">Patient name</td>
-<!--        <td th:text="${patient.surname}">Patient surname</td>-->
-<!--        <td th:text="${patient.age}">Patient age</td>-->
-<!--        <td th:text="${patient.covidInfo}">Patient covid information</td>-->
+    <tr th:each="person,iterStat : ${persons}">
+        <td th:text="${person.first_name}">Person first_name</td>
+        <td th:text="${person.last_name}">Person last_name</td>
+        <td th:text="${person.rental.amount}">Rent amount</td>
+        <td th:text="${cars.get(iterStat.index).model}">Car Model</td>
         <td>
-            <form action="#" th:action="@{'/updateperson?name='+${patient.name}+'&id='+${patient.id}}" th:method="post" >
-                <input type="hidden" name="_method" value="post" />
-                <button type="submit" id="Approve" name="Approve">Update Covid Info </button>
+            <form action="/update" method="GET" >
+                <input type="hidden" name="rental_id" th:value="${person.rental.id}" />
+                <button type="submit" id="Approve">Update Covid Info </button>
             </form>
         </td>
 
         <td>
-            <form action="#" th:action="@{'/deletePatient/'+${patient.id}}" th:method="post" >
-                <button type="submit" >Delete Patient </button>
+            <form action="#" th:action="@{'/deleteRecord/'+${person.rental.id}}" th:method="post" >
+                <button type="submit" >Delete Record </button>
             </form>
         </td>
     </tr>

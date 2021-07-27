@@ -13,8 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 public interface PersonRepository extends JpaRepository<Person, Integer> {
     @Transactional
     @Modifying
-    @Query("update Person p set p.name = :name where p.id = :id")
+    @Query("update Person p set p.last_name = :name where p.id = :id")
     void setPersonName(@Param("name") String name, @Param("id") int id);
 
-    Person findByName(String name);
+    @Transactional(readOnly = true)
+    @Query("FROM Person p where p.first_name = :first_name and  p.last_name = :last_name")
+    Person getPersonByName(@Param("first_name") String first_name, @Param("last_name") String last_name);
+
+    @Transactional(readOnly = true)
+    @Query("FROM Person p where p.rental.id = :rental_id")
+    Person getPersonByRentalId(@Param("rental_id") int rental_id);
 }

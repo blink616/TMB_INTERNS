@@ -21,51 +21,39 @@
                 <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/patients">Patients <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/persons">Persons <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">Add Patient</a>
+                <a class="nav-link" href="/register">Add Person</a>
             </li>
 
 
         </ul>
     </div>
 </nav>
-<form class="needs-validation" th:action="@{/register}" th:object="${person}" th:method="post">
+<form class="needs-validation" th:action="@{/register}" method="post">
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="validationTooltip01">Patient First Name</label>
-            <input type="text" class="form-control" id="validationTooltip01" placeholder="Patient First Name" value="Mark" th:field="*{name}"/>
-            <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Item Type Error</small>
-            <div class="valid-tooltip">
-                Looks good!
+            <label for="validationTooltip01">Person First Name</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="Person First Name" name="first_name"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip02">Person Last Name</label>
+            <input type="text" class="form-control" id="validationTooltip02" placeholder="Person Last name" name="last_name"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltipUsername">Rent Amount</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Enter Rent Amount" aria-describedby="validationTooltipUsernamePrepend" name="amount"/>
             </div>
         </div>
-<!--        <div class="col-md-4 mb-3">-->
-<!--            <label for="validationTooltip02">Patient Last Name</label>-->
-<!--            <input type="text" class="form-control" id="validationTooltip02" placeholder="Patient Last name" value="Otto" th:field="*{surname}"/>-->
-<!--            <small th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Item Type Error</small>-->
-<!--            <div class="valid-tooltip">-->
-<!--                Looks good!-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-md-4 mb-3">-->
-<!--            <label for="validationTooltipUsername">Patient Age</label>-->
-<!--            <div class="input-group">-->
-<!--                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Enter Patient Age" aria-describedby="validationTooltipUsernamePrepend" th:field="*{age}"/>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
-<!--    <div class="form-row">-->
-<!--        <div class="col-md-6 mb-3">-->
-<!--            <label for="validationTooltip03">Patient Covid Info</label>-->
-<!--            <input type="text" class="form-control" id="validationTooltip03" placeholder="Enter Patient Covid Info" th:field="*{covidInfo}"/>-->
-<!--            <small th:if="${#fields.hasErrors('covidInfo')}" th:errors="*{covidInfo}">Item Type Error</small>-->
-<!--            <div class="invalid-tooltip">-->
-<!--                Please provide a valid city.-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+        <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip03">Car Model</label>
+            <input type="text" class="form-control" id="validationTooltip03" placeholder="Enter Car Model"  name="model"/>
+        </div>
+    </div>
     <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 
