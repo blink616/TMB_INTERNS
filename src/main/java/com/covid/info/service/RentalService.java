@@ -16,6 +16,9 @@ public interface RentalService {
     Car getCarByRentalId(int rental_id);
     Person getPersonByName(String first_name, String last_name);
     Person getPersonByPhone(String phone_no);
+    Person getPersonByAddress(String address);
+    Person getPersonByCnic(String cnic);
+    Person getPersonByEmail(String email);
     void updatePersonName(String name, int id);
     void deletePersonById(int id);
     void deleteRentalById(int id);

@@ -36,6 +36,9 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Phone Number</th>
+        <th>Address</th>
+        <th>CNIC</th>
+        <th>Email</th>
         <th>Rental Amount</th>
         <th>Car Model</th>
         <th></th>
@@ -45,6 +48,9 @@
         <td th:text="${person.first_name}">Person first_name</td>
         <td th:text="${person.last_name}">Person last_name</td>
         <td th:text="${person.phone_no}">Person phone_no</td>
+        <td th:text="${person.address}">Person address</td>
+        <td th:text="${person.cnic}">Person cnic</td>
+        <td th:text="${person.email}">Person email</td>
         <td th:text="${person.rental.amount}">Rent amount</td>
         <td th:text="${cars.get(iterStat.index).model}">Car Model</td>
         <td>

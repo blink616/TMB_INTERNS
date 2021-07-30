@@ -35,16 +35,28 @@
     <div class="form-row">
         <input hidden name="rental_id" th:value="${rental.id}">
         <div class="col-md-4 mb-3">
-            <label for="validationTooltip01">Person First Name</label>
-            <input type="text" class="form-control" id="validationTooltip01" th:value="${person.getFirst_name()}" placeholder="Person First Name" name="first_name"/>
+            <label for="validationTooltipFName">Person First Name</label>
+            <input type="text" class="form-control" id="validationTooltipFName" th:value="${person.getFirst_name()}" placeholder="Person First Name" name="first_name"/>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="validationTooltip02">Person Last Name</label>
-            <input type="text" class="form-control" id="validationTooltip03" th:value="${person.getLast_name()}" placeholder="Person Last name" name="last_name"/>
+            <label for="validationTooltipLName">Person Last Name</label>
+            <input type="text" class="form-control" id="validationTooltipLName" th:value="${person.getLast_name()}" placeholder="Person Last name" name="last_name"/>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="validationTooltip02">Person Phone Number</label>
-            <input type="text" class="form-control" id="validationTooltip04" th:value="${person.getPhone_no()}" placeholder="Person Phone Number" name="phone_no"/>
+            <label for="validationTooltipPhone">Person Phone Number</label>
+            <input type="text" class="form-control" id="validationTooltipPhone" th:value="${person.getPhone_no()}" placeholder="Person Phone Number" name="phone_no"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltipAddress">Person Address</label>
+            <input type="text" class="form-control" id="validationTooltipAddress" th:value="${person.getAddress()}" placeholder="Person Address" name="address"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltipCNIC">Person CNIC</label>
+            <input type="text" class="form-control" id="validationTooltipCNIC" th:value="${person.getCnic()}" placeholder="Person CNIC" name="cnic"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltipEmail">Person Email</label>
+            <input type="text" class="form-control" id="validationTooltipEmail" th:value="${person.getEmail()}" placeholder="Person Email" name="email"/>
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationTooltipUsername">Rent Amount</label>
@@ -55,8 +67,8 @@
     </div>
     <div class="form-row">
         <div class="col-md-6 mb-3">
-            <label for="validationTooltip03">Car Model</label>
-            <input type="text" class="form-control" id="validationTooltip02" th:value="${car.getModel()}" placeholder="Enter Car Model"  name="model"/>
+            <label for="validationTooltipCarModel">Car Model</label>
+            <input type="text" class="form-control" id="validationTooltipCarModel" th:value="${car.getModel()}" placeholder="Enter Car Model"  name="model"/>
         </div>
     </div>
     <button class="btn btn-primary" type="submit">Update</button>

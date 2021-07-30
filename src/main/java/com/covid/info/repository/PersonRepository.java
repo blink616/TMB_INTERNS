@@ -23,6 +23,15 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     @Transactional(readOnly = true)
     @Query("FROM Person p where p.phone_no = :phone_no")
     Person getPersonByPhone(@Param("phone_no") String phone_no);
+    @Transactional(readOnly = true)
+    @Query("FROM Person p where p.address = :address")
+    Person getPersonByAddress(@Param("address") String address);
+    @Transactional(readOnly = true)
+    @Query("FROM Person p where p.cnic = :cnic")
+    Person getPersonByCnic(@Param("cnic") String cnic);
+    @Transactional(readOnly = true)
+    @Query("FROM Person p where p.email = :email")
+    Person getPersonByEmail(@Param("email") String email);
 
     @Transactional(readOnly = true)
     @Query("FROM Person p where p.rental.id = :rental_id")

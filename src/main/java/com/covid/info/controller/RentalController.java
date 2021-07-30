@@ -28,8 +28,11 @@ public class RentalController {
     @PostMapping(value="/register")
     public String handleRegisterForm(@RequestParam("first_name") String first_name,
                                      @RequestParam("last_name") String last_name,
-                                     @RequestParam("amount") String amount,
                                      @RequestParam("phone_no") String phone_no,
+                                     @RequestParam("address") String address,
+                                     @RequestParam("cnic") String cnic,
+                                     @RequestParam("email") String email,
+                                     @RequestParam("amount") String amount,
                                      @RequestParam("model") String model) throws SQLException {
         Rental r = new Rental();
         if(amount!=""){
@@ -45,6 +48,15 @@ public class RentalController {
         }
         if(!phone_no.equals("")){
             person.setPhone_no(phone_no);
+        }
+        if(!address.equals("")){
+            person.setAddress(address);
+        }
+        if(!cnic.equals("")){
+            person.setCnic(cnic);
+        }
+        if(!email.equals("")){
+            person.setEmail(email);
         }
         person.setRental(r);
         rentalService.addPerson(person);
@@ -95,6 +107,9 @@ public class RentalController {
                                    @RequestParam("first_name") String first_name,
                                    @RequestParam("last_name") String last_name,
                                    @RequestParam("phone_no") String phone_no,
+                                   @RequestParam("address") String address,
+                                   @RequestParam("cnic") String cnic,
+                                   @RequestParam("email") String email,
                                    @RequestParam("amount") String amount,
                                    @RequestParam("model") String model){
         Person person = rentalService.getPersonByRentalId(rental_id);
@@ -103,6 +118,9 @@ public class RentalController {
         person.setFirst_name(first_name);
         person.setLast_name(last_name);
         person.setPhone_no(phone_no);
+        person.setAddress(address);
+        person.setCnic(cnic);
+        person.setEmail(email);
         rental.setAmount(Integer.parseInt(amount));
         car.setModel(model);
         rentalService.flush();

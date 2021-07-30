@@ -122,6 +122,23 @@ public class RentalServiceImpl implements RentalService {
     public Person getPersonByPhone(String phone_no) {
         return personRepository.getPersonByPhone(phone_no);
     }
+
+    @Override
+    public Person getPersonByAddress(String address) {
+        return personRepository.getPersonByAddress(address);
+    }
+
+    @Override
+    public Person getPersonByCnic(String cnic) {
+        return personRepository.getPersonByCnic(cnic);
+    }
+
+    @Override
+    public Person getPersonByEmail(String email) {
+        return personRepository.getPersonByEmail(email);
+    }
+
+
     @Override
     public void flush(){
         rentalRepository.flush();
