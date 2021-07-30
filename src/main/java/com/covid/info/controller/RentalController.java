@@ -29,6 +29,7 @@ public class RentalController {
     public String handleRegisterForm(@RequestParam("first_name") String first_name,
                                      @RequestParam("last_name") String last_name,
                                      @RequestParam("amount") String amount,
+                                     @RequestParam("phone_no") String phone_no,
                                      @RequestParam("model") String model) throws SQLException {
         Rental r = new Rental();
         if(amount!=""){
@@ -36,16 +37,19 @@ public class RentalController {
         }
         rentalService.addRental(r);
         Person person = new Person();
-        if(first_name!=""){
+        if(!first_name.equals("")){
             person.setFirst_name(first_name);
         }
-        if(last_name!=""){
+        if(!last_name.equals("")){
             person.setLast_name(last_name);
+        }
+        if(!phone_no.equals("")){
+            person.setPhone_no(phone_no);
         }
         person.setRental(r);
         rentalService.addPerson(person);
         Car car = new Car();
-        if(model!=""){
+        if(!model.equals("")){
             car.setModel(model);
         }
         car.setRental(r);
@@ -90,6 +94,7 @@ public class RentalController {
     public String updateStatusForm(@RequestParam("rental_id") int rental_id,
                                    @RequestParam("first_name") String first_name,
                                    @RequestParam("last_name") String last_name,
+                                   @RequestParam("phone_no") String phone_no,
                                    @RequestParam("amount") String amount,
                                    @RequestParam("model") String model){
         Person person = rentalService.getPersonByRentalId(rental_id);
@@ -97,6 +102,7 @@ public class RentalController {
         Car car = rentalService.getCarByRentalId(rental_id);
         person.setFirst_name(first_name);
         person.setLast_name(last_name);
+        person.setPhone_no(phone_no);
         rental.setAmount(Integer.parseInt(amount));
         car.setModel(model);
         rentalService.flush();

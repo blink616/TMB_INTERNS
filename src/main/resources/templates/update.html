@@ -40,7 +40,11 @@
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationTooltip02">Person Last Name</label>
-            <input type="text" class="form-control" id="validationTooltip02" th:value="${person.getLast_name()}" placeholder="Person Last name" name="last_name"/>
+            <input type="text" class="form-control" id="validationTooltip03" th:value="${person.getLast_name()}" placeholder="Person Last name" name="last_name"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip02">Person Phone Number</label>
+            <input type="text" class="form-control" id="validationTooltip04" th:value="${person.getPhone_no()}" placeholder="Person Phone Number" name="phone_no"/>
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationTooltipUsername">Rent Amount</label>
@@ -52,7 +56,7 @@
     <div class="form-row">
         <div class="col-md-6 mb-3">
             <label for="validationTooltip03">Car Model</label>
-            <input type="text" class="form-control" id="validationTooltip03" th:value="${car.getModel()}" placeholder="Enter Car Model"  name="model"/>
+            <input type="text" class="form-control" id="validationTooltip02" th:value="${car.getModel()}" placeholder="Enter Car Model"  name="model"/>
         </div>
     </div>
     <button class="btn btn-primary" type="submit">Update</button>

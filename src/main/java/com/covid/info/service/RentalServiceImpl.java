@@ -119,6 +119,10 @@ public class RentalServiceImpl implements RentalService {
         return personRepository.getPersonByName(first_name,last_name);
     }
     @Override
+    public Person getPersonByPhone(String phone_no) {
+        return personRepository.getPersonByPhone(phone_no);
+    }
+    @Override
     public void flush(){
         rentalRepository.flush();
         personRepository.flush();
