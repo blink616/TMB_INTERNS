@@ -23,6 +23,6 @@ To make use of the API, run it on localhost. The port by default will be 8080.
 ### 3. Rentals
 * Get all Rentals - GET /api/rentals
 * Get Rental by ID - GET /api/rentals/:id
-* Create Rental - POST /api/rentals
+* Create Rental - POST /api/rentals?car_id=:car_id&customer_id=:customer_id
 * Update Rental - PUT /api/rentals/:id
 * Delete Rental - DELETE /api/rentals/:id
