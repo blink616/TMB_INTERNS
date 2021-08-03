@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
 
+
+
 @Controller
 public class RentalController {
    @Autowired
