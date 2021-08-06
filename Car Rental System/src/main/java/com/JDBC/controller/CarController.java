@@ -17,9 +17,7 @@ import java.util.Map;
 @RequestMapping("/api/")
 public class CarController {
 
-    @Autowired
     private CarRepository carRepository;
-    @Autowired
     private RentalRepository rentalRepository;
 
 //    @GetMapping("cars")

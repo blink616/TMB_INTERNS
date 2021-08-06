@@ -20,40 +20,41 @@ import java.util.Map;
 @RequestMapping("/api/")
 public class CustomerController {
 
-    @Autowired
-    private CustomerRepository customerRepository;
-    @Autowired
+    private CustomerRepository customerRepository = new CustomerRepository();
     private RentalRepository rentalRepository;
 
     @GetMapping("customers")
-    public List<Customer> getAllCustomers() throws SQLException {
+	public List<Customer> getAllCustomers() throws SQLException {
         dbConnection con = new dbConnection();
 
         return this.customerRepository.AllCustomers(con.makeConnection());
-    }
+	}
 
-//	@GetMapping("customers/{id}")
-//	public ResponseEntity<Customer> getCustomer(@PathVariable Long id) throws ResourceNotFoundException {
-//		Customer customer = customerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + id));
-//		return ResponseEntity.ok(customer);
-//	}
+	@GetMapping("customers/{id}")
+	public ResponseEntity<Customer> getCustomer(@PathVariable Long id) throws ResourceNotFoundException {
+		dbConnection con = new dbConnection();
+    	Customer customer = customerRepository.getById(con.makeConnection(),id);
+		return ResponseEntity.ok(customer);
+	}
 //
-//	@PostMapping("customers")
-//    public Customer createCustomer(@RequestBody Customer customer) {
-//        return this.customerRepository.save(customer);
-//    }
+	@PostMapping("customers")
+    public Map<String,Boolean> createCustomer(@RequestBody Customer customer) {
+    	dbConnection con = new dbConnection();
+    	boolean added = this.customerRepository.save(con.makeConnection(),null,customer);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("added",added);
+		return response;
+
+    }
 //
-//    @PutMapping("customers/{id}")
-//    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customerDetails) throws ResourceNotFoundException {
-//        Customer customer = customerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + id));
-//
-//        customer.setFirstName(customerDetails.getFirstName());
-//        customer.setLastName(customerDetails.getLastName());
-//        customer.setEmail(customerDetails.getEmail());
-//        customer.setPhoneNumber(customerDetails.getPhoneNumber());
-//
-//        return ResponseEntity.ok(this.customerRepository.save(customer));
-//    }
+    @PutMapping("customers/{id}")
+    public Map<String, Boolean> updateCustomer(@PathVariable Long id, @RequestBody Customer customerDetails) throws ResourceNotFoundException {
+        dbConnection con = new dbConnection();
+    	boolean edited = customerRepository.save(con.makeConnection(),id,customerDetails);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("edited", edited);
+		return response;
+    }
 //
 //    @DeleteMapping("customers/{id}")
 //    public Map<String, Boolean> deleteCustomer(@PathVariable Long id) throws ResourceNotFoundException {
