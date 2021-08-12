@@ -9,6 +9,7 @@ import com.Saud.springboothibernatelogin.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,16 +29,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public ApiResponse login(LoginDto loginDto) {
         User user = userDao.findByUsername(loginDto.getUsername());
-        if(user == null) {
+        if (user == null) {
             throw new RuntimeException(" User already exists. ");
         }
-        if(!user.getPassword().equals(loginDto.getPassword())){
+        if (!user.getPassword().equals(loginDto.getPassword())) {
             throw new RuntimeException(" Password mismatch. ");
         }
-        return new ApiResponse(200, "Login success", null) ;
+        return new ApiResponse(200, "Login success", null);
 
     }
 
-    private void validateSignUp(SignUpDto signUpDto) {
+    public void validateSignUp(SignUpDto signUpDto) {
+        if (signUpDto.getUsername().length() < 6 || signUpDto.getUsername().length() > 32) {
+            throw new RuntimeException("Username length must be between 6 & 32 characters. ");
+
+        }
+        User user = userDao.findByUsername(signUpDto.getUsername());
+        if(user != null){
+            throw new RuntimeException(" User already exists. ");
+        }
+
     }
 }
