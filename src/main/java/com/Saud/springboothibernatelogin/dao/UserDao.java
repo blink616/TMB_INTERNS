@@ -1,6 +1,6 @@
-package com.devglan.springboothibernatelogin.dao;
+package com.Saud.springboothibernatelogin.dao;
 
-import com.devglan.springboothibernatelogin.model.User;
+import com.Saud.springboothibernatelogin.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDao extends JpaRepository<User, Integer> {

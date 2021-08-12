@@ -8,7 +8,7 @@
         <version>2.1.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.devglan</groupId>
+    <groupId>com.Saud</groupId>
     <artifactId>spring-boot-hibernate-login</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-hibernate-login</name>
@@ -29,9 +29,9 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.17</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

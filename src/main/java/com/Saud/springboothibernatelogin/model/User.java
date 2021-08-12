@@ -1,4 +1,4 @@
-package com.devglan.springboothibernatelogin.model;
+package com.Saud.springboothibernatelogin.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

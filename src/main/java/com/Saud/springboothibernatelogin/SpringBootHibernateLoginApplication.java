@@ -1,4 +1,4 @@
-package com.devglan.springboothibernatelogin;
+package com.Saud.springboothibernatelogin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

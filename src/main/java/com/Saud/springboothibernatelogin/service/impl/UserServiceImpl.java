@@ -1,11 +1,11 @@
-package com.devglan.springboothibernatelogin.service.impl;
+package com.Saud.springboothibernatelogin.service.impl;
 
-import com.devglan.springboothibernatelogin.dao.UserDao;
-import com.devglan.springboothibernatelogin.dto.ApiResponse;
-import com.devglan.springboothibernatelogin.dto.LoginDto;
-import com.devglan.springboothibernatelogin.dto.SignUpDto;
-import com.devglan.springboothibernatelogin.model.User;
-import com.devglan.springboothibernatelogin.service.UserService;
+import com.Saud.springboothibernatelogin.dao.UserDao;
+import com.Saud.springboothibernatelogin.dto.ApiResponse;
+import com.Saud.springboothibernatelogin.dto.LoginDto;
+import com.Saud.springboothibernatelogin.dto.SignUpDto;
+import com.Saud.springboothibernatelogin.model.User;
+import com.Saud.springboothibernatelogin.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,10 +29,10 @@ public class UserServiceImpl implements UserService {
     public ApiResponse login(LoginDto loginDto) {
         User user = userDao.findByUsername(loginDto.getUsername());
         if(user == null) {
-            throw new RuntimeException("User already exist.");
+            throw new RuntimeException(" User already exists. ");
         }
         if(!user.getPassword().equals(loginDto.getPassword())){
-            throw new RuntimeException("Password mismatch.");
+            throw new RuntimeException(" Password mismatch. ");
         }
         return new ApiResponse(200, "Login success", null) ;
 

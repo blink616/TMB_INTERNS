@@ -1,6 +1,4 @@
-package com.devglan.springboothibernatelogin.dto;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.Saud.springboothibernatelogin.dto;
 
 public class SignUpDto {
 
